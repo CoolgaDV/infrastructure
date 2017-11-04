@@ -5,7 +5,6 @@ import com.mongodb.MongoClientURI;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 
@@ -26,15 +25,11 @@ public class MongoConfiguration {
     private String databaseName;
 
     @Bean
-    public MongoDbFactory mongoDbFactory() throws Exception {
-        return new SimpleMongoDbFactory(
+    public MongoTemplate mongoTemplate() throws Exception {
+        SimpleMongoDbFactory factory = new SimpleMongoDbFactory(
                 new MongoClient(new MongoClientURI(connectionUrl)),
                 databaseName);
-    }
-
-    @Bean
-    public MongoTemplate mongoTemplate() throws Exception {
-        return new MongoTemplate(mongoDbFactory());
+        return new MongoTemplate(factory);
     }
 
 }
