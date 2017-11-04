@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  shard-a:
+    image: mongo:3.4.10-jessie
+    entrypoint: mongod --shardsvr
+    ports:
+          - "127.0.0.1:9191:27018"
+
+  shard-b:
+    image: mongo:3.4.10-jessie
+    entrypoint: mongod --shardsvr
+    ports:
+          - "127.0.0.1:9192:27018"
+
+  config-server:
+    image: mongo:3.4.10-jessie
+    entrypoint: mongod --configsvr --replSet sample-config-replica
+    ports:
+          - "127.0.0.1:9193:27019"
+
+  router:
+    image: mongo:3.4.10-jessie
+    entrypoint: mongos --configdb sample-config-replica/config-server:27019
+    ports:
+          - "127.0.0.1:9194:27017"
