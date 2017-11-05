@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-docker build -t mongodb-single:1.0 ./
+. ../../common/common.sh
+. ../mongodb-common.sh
 
-docker run -d --rm -ti \
-       --name mongodb-single \
-       -p 127.0.0.1:5353:27017 \
-       mongodb-single:1.0
+info "Starting compose ..."
+docker-compose -f single-compose.yml -f up -d
+
+info "Waiting for db ..."
+wait_for_db_start 5353
