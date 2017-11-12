@@ -1,3 +1,7 @@
+// ---
+// This script should be run in mongod shell using the following command:
+// load("/scripts/write-read.js")
+// ---
 
 print("Insert simple document:");
 printjson(db.sample.insert({
