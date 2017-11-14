@@ -4,6 +4,7 @@
 // ---
 
 var collection = db.getSiblingDB("sample").sample;
+collection.drop();
 
 for (var index = 0; index < 1000; index++) {
     collection.insert({
@@ -12,7 +13,11 @@ for (var index = 0; index < 1000; index++) {
     });
 }
 
+print("=== Creating index :");
 collection.createIndex({ indexedField : 1 });
+
+print("=== Collection indexes :");
+printjson(collection.getIndexes());
 
 print("=== Query by value :");
 // Pay attention to "COLLSCAN" stage type
