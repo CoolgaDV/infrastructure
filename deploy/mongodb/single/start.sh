@@ -10,4 +10,4 @@ docker run -d --rm -it \
            mongo:3.4.10-jessie
 
 info "Waiting for db ..."
-wait_for_db_start 5353
+wait_for_docker_plain_db_start single-mongo

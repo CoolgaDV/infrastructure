@@ -18,4 +18,4 @@ services:
     image: mongo:3.4.10-jessie
     entrypoint: mongod --replSet sample-replica
     ports:
-          - "127.0.0.1:9093:27  017"
+          - "127.0.0.1:9093:27017"

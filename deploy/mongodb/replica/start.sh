@@ -7,9 +7,9 @@ info "Starting compose ..."
 docker-compose -f replica-compose.yml up -d
 
 info "Waiting for dbs ..."
-wait_for_db_start 9091
-wait_for_db_start 9092
-wait_for_db_start 9093
+wait_for_docker_compose_db_start replica-compose.yml primary 27017
+wait_for_docker_compose_db_start replica-compose.yml secondary 27017
+wait_for_docker_compose_db_start replica-compose.yml arbiter 27017
 
 info "Initializing primary ..."
 mongo --quiet --host localhost --port 9091 --eval "rs.initiate()"
