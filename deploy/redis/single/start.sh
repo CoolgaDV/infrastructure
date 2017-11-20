@@ -10,4 +10,4 @@ docker run -d --rm -it \
            redis:4.0.2-alpine
 
 info "Waiting for redis ..."
-wait_for_redis_start single-redis
+wait_for_docker_plain_redis_start single-redis

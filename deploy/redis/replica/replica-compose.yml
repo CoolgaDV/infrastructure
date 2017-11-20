@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  master:
+    build: ./master
+
+  slave:
+    build: ./slave
