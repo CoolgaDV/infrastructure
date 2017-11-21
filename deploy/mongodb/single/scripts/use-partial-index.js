@@ -14,10 +14,10 @@ for (var index = 0; index < 10; index++) {
 }
 
 print("=== Creating index :");
-collection.createIndex(
+printjson(collection.createIndex(
     { indexedField : 1 },
     { partialFilterExpression: { indexedField: { $gt: 5 } } }
-);
+));
 
 print("=== Collection indexes :");
 printjson(collection.getIndexes());

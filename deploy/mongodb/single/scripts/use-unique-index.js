@@ -14,7 +14,7 @@ for (var index = 0; index < 1000; index++) {
 }
 
 print("=== Creating index :");
-collection.createIndex({ indexedField: 1 }, { unique: true });
+printjson(collection.createIndex({ indexedField: 1 }, { unique: true }));
 
 print("=== Collection indexes :");
 printjson(collection.getIndexes());

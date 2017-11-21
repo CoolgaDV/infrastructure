@@ -13,7 +13,7 @@ for (var index = 0; index < 10000; index++) {
 }
 
 print("=== Creating plain index :");
-collection.createIndex({ indexedField : 1 });
+printjson(collection.createIndex({ indexedField : 1 }));
 
 print("=== Collection indexes :");
 printjson(collection.getIndexes());
