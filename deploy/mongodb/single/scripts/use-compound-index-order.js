@@ -1,5 +1,5 @@
 // ---
-// This script should be run in mongod shell using the following command:
+// This script should be run in mongo shell using the following command:
 // load("/scripts/use-compound-index-order.js")
 // ---
 
