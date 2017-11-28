@@ -7,9 +7,6 @@ RUN apt-get update && \
     # auxiliary packages for downloading grafana image
     apt-transport-https \
     curl \
-    # apache web server (for running graphite api application)
-    apache2 \
-    libapache2-mod-wsgi \
     # supervisord (for convenience of running multiple services inside single docker container)
     supervisor \
     # carbone (graphite metrics collecting application)
@@ -20,9 +17,10 @@ RUN apt-get update && \
     build-essential \
     python-dev \
     libcairo2-dev \
-    libffi-dev
+    libffi-dev \
+    nginx
 
-RUN pip install graphite-api
+RUN pip install graphite-api gunicorn
 
 # installing grafana
 RUN echo "deb https://packagecloud.io/grafana/stable/debian/ jessie main" >> /etc/apt/sources.list && \
@@ -39,12 +37,7 @@ RUN cp /usr/share/doc/graphite-carbon/examples/storage-aggregation.conf.example 
 
 # configuring graphite api
 COPY graphite-api.yaml /etc/
-
-# configuring apache for running graphite api
-RUN a2dissite 000-default
-COPY graphite-api.wsgi /var/www/wsgi-scripts/
-COPY graphite-api.conf /etc/apache2/sites-available/
-RUN a2ensite graphite-api
+COPY graphite.conf /etc/nginx/sites-enabled/
 
 # configuring supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
