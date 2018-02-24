@@ -1,0 +1,28 @@
+# Get cluster health
+GET /_cluster/health
+
+# Get cluster nodes
+GET /_cat/nodes?v
+
+# Get cluster indices
+GET /_cat/indices?v
+
+# Delete index
+DELETE /<index name>
+
+# Create index
+PUT sample
+{
+    "settings" : {
+        "index" : {
+            "number_of_shards" : 1,
+            "number_of_replicas" : 0
+        }
+    }
+}
+
+# Post document to index with default type (_doc)
+POST /sample/_doc
+{
+  "message": "Hello"
+}
