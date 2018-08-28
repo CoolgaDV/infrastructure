@@ -1,0 +1,5 @@
+all:
+  hosts:
+    192.168.3.11:
+      ansible_ssh_user: vagrant
+      ansible_ssh_extra_args: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
