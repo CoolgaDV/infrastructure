@@ -1,5 +1,7 @@
 .idea/
 target/
+.vagrant/
+
 *.iml
 *.log
-.vagrant/
+play-book.retry
