@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+
+  - name: print debug message
+    debug:
+      msg: "This is some {{ test_debug_message }}"
+
+  - name: add some line to file
+    shell: "echo \"{{ test_file_content }}\" > some.txt"

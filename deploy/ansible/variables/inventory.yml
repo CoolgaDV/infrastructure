@@ -1,0 +1,7 @@
+all:
+  vars:
+    test_debug_message: "default test message"
+    test_file_content: "Default test file content"
+  hosts:
+    192.168.3.11:
+      test_debug_message: "host specific test message"
