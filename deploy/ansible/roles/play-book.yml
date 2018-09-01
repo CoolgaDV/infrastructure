@@ -1,4 +1,4 @@
 ---
 - hosts: all
   roles:
-    - role: docker
+    - { role: docker, add_user_to_docker_group: false }
