@@ -1,0 +1,24 @@
+---
+- name: add single user with ssh keys
+  block:
+
+  - name: "create user '{{ user }}'"
+    user:
+      name: "{{ user }}"
+
+  - name: "ensure .ssh directory exists for user '{{ user }}'"
+    file:
+      path: "{{ ssh_directory }}"
+      state: directory
+      recurse: yes
+      owner: "{{ user }}"
+      group: "{{ user }}"
+
+  - name: "copy ssh keys for user '{{ user }}'"
+    copy:
+      src: "users/{{ file }}"
+      dest: "{{ ssh_directory }}/authorized_keys"
+      owner: "{{ user }}"
+      group: "{{ user }}"
+
+  become: yes

@@ -1,0 +1,8 @@
+---
+- name: add users with ssh keys
+  include_tasks: add-user.yml
+  vars:
+    user: "{{ (item | splitext)[0] }}"
+    file: "{{ item }}"
+    ssh_directory: "/home/{{ user }}/.ssh"
+  loop: "{{ ssh_users | map(attribute = 'path') | list }}"
