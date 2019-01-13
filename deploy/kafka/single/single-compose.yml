@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+  node:
+    build: ./node
+
+  zookeeper:
+    build: ./zookeeper
