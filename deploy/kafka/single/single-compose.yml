@@ -4,6 +4,10 @@ services:
 
   node:
     build: ./node
+    ports:
+      - "127.0.0.1:9092:9092"
 
   zookeeper:
     build: ./zookeeper
+    ports:
+      - "127.0.0.1:2181:2181"
