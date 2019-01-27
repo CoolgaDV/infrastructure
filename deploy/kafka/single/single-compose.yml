@@ -4,10 +4,12 @@ services:
 
   node:
     build: ./node
+    container_name: single-kafka-node
     ports:
       - "127.0.0.1:9092:9092"
 
   zookeeper:
     build: ./zookeeper
+    container_name: single-kafka-zookeeper
     ports:
       - "127.0.0.1:2181:2181"
