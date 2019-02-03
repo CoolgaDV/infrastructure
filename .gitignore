@@ -2,6 +2,8 @@
 target/
 .vagrant/
 
+kafka-manager/
+
 *.iml
 *.log
 play-book.retry
