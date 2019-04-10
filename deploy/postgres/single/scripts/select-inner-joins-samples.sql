@@ -41,12 +41,7 @@ INSERT INTO select_joins_first_sample(second_sample_id, name, first_kind) VALUES
     (2, 'first sample 5', 'C'),
     (3, 'first sample 6', 'C');
 
--- cross join (Cartesian Product)
-SELECT f.name first_name, s.name second_name
-FROM select_joins_first_sample f
-CROSS JOIN select_joins_second_sample s;
-
--- inner join
+-- inner join for two tables
 SELECT f.name first_name, s.name second_name
 FROM select_joins_first_sample f
     INNER JOIN select_joins_second_sample s ON f.second_sample_id = s.id;
