@@ -15,7 +15,7 @@ INSERT INTO select_filtering_sample(name, kind, size) VALUES
     ('sample 4', 'C', 10),
     ('sample 5', 'C', 30),
     ('sample 6', 'C', 60),
-    ('sample 6', 'C', null);
+    ('sample 7', 'C', null);
 
 -- filter by single field
 SELECT * FROM select_filtering_sample WHERE kind = 'A';
