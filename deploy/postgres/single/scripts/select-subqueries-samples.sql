@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS select_subqueries_sample (
     size INTEGER
 );
 
-INSERT INTO select_subqueries_sample(name, kind, size)VALUES
+INSERT INTO select_subqueries_sample(name, kind, size) VALUES
     ('sample 1', 'A', 10),
     ('sample 2', 'A', 20),
     ('sample 3', 'B', 40),
